@@ -6,10 +6,11 @@
 title: guanhongjie的博客
 subtitle: 千里之行 积于跬步 九层之台 起于累土
 description: "guanhongjie的博客"
-keywords:
+keyword: "guanhongjie的博客"
 author: Hongjie Guan
 language: zh
 timezone: ""
+SEOTitle: "guanhongjie"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
