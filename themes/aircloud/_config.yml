@@ -1,1 +1,10 @@
 __: aircloud
+# Valine https://valine.js.org
+comment: true #打开评论系统
+valine:
+  appid: Ymj3Wec8bNrVWvOrrIw0P1kG-MdYXbMMI #LeanCloud中的AppID
+  appkey: 3CPCEBWW5sbk2TicczVjaXVf #LeanCloud中的AppKey
+  verify: false #验证码
+  notify: false #评论回复提醒
+  avatar: retro #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
+  placeholder: 请留下宝贵的评论 #评论框占位符
