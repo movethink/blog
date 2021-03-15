@@ -712,6 +712,9 @@ body {
 #comment-container {
   text-indent: 0;
 }
+#valine-container {
+  text-indent: 0;
+}
 #lv-container {
   text-indent: 0;
 }

@@ -29,25 +29,21 @@
         <% } %>
         <br />
         <div id="comment-container">
-            <% if (theme.comment){ %>
-                <% if (theme.valine && theme.valine.appid && theme.valine.appkey){ %>
-                  <section id="comments" class="comments">
-                    <style>
-                      .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
-                      @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
-                    </style>
-                    <%- partial('_partial/valine', {
-                      title: page.title,
-                      url: url_for(page.path),
-                    }) %>
-                  </section>
-                <% } %>
-              <% } %>
+            
         </div>
         <div id="disqus_thread"></div>
 
         <div id="lv-container">
         </div>
-
+        <div id="valine-container">
+          <!-- valine评论 -->
+          <section id="comments" class="comments">
+          </section>
+            <style>
+              .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
+              @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+        </div>
     </div>
 </div>

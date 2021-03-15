@@ -141,3 +141,6 @@
 .post-content li p {
   display: inline;
 }
+#valine-container {
+  text-indent: 0;
+}
