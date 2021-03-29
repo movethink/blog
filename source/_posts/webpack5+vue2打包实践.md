@@ -553,7 +553,91 @@ package.json 文件：
 
 ## 集成 vue
 
-用于直接在该环境上开发测试中间件
+### 拆分 webpack 配置
+
+由于我们要在环境中集成 vue，需要在本地进行调试 vue 代码，所以我们至少需要两套环境，一套 dev 配置，用来打开一个本地服务器；一套 prod 配置，用来打包 labreries，我们引入`webpack-merge`包，来拆分 webpack 配置。
+
+`webpack.common.js`文件用来存放 dev 和 prod 共同存在的配置
+
+`webpack.dev.js`用来存放 development 环境的配置
+
+`webpack.prod.js`用来存放 production 环境配置
+
+我们把`webpack.config.js`文件直接变为`webpack.prod.js`，然后在其中通过 webpack-merge 包，合并 common 与 prod 文件中的 webpack 配置：
+
+```js
+const path = require("path");
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common");
+
+prod = {
+  mode: "production", // 选择模式为生产
+  entry: "./src/yn-chart-middleware/index.js", // 入口文件
+  output: {
+    filename: "ynChartMiddleware.js", // 出口文件名称
+    library: "ynChartMiddleware", // library暴露出来的名称
+    libraryTarget: "umd", //在 AMD 或 CommonJS require 之后可访问
+    path: path.resolve(__dirname, "lib"), // 定义出口文件夹目录
+  },
+  // 打包代码不压缩
+  optimization: {
+    minimize: true,
+  },
+  target: ["web", "es5"],
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+  // 把以下依赖不打入包中，让包文件去外部宿主中引入这些依赖
+  externals: {
+    echarts: {
+      commonjs: "echarts",
+      commonjs2: "echarts",
+      amd: "echarts",
+      root: "_",
+    },
+  },
+};
+
+module.exports = merge(common, prod);
+```
+
+`webpack.common.js`文件可以暂时置空：
+
+```js
+module.exports = {};
+```
+
+`webpack.dev.js`文件可以由`webpack.prod.js`文件复制得到；
+
+然后我们使用`webpack-dev-server`包，用来在本地启动一个服务器调试环境。
+
+修改 package.json：
+
+```js
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.prod.js",
+    "serve": "webpack serve --open --config webpack.dev.js"
+  },
+```
+
+现在执行 `npm run serve`，即可打开一个本地服务。
+
+如图：
+
+![](http://qiniu.js-5.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210329212507.png)
+
+由于当前未定义入口文件，所以本地服务器默认显示出了根目录下文件
+
+### 配置开发环境 webpack
 
 to do.
 
