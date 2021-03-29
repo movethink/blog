@@ -30,9 +30,10 @@
   font-size: 18px;
   font-weight: 300;
   transition: color 0.4s;
+  display: inline-block;
 }
 .post-preview .post-info a h3:hover {
-  color: #4990E2;
+  color: #4990e2;
 }
 .post-preview .post-info p {
   margin-top: 0;
@@ -98,7 +99,7 @@
     flex-direction: column;
     padding-left: 10px;
     padding-right: 10px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #eeeeee;
   }
   .post-preview .post-time {
     font-size: 11px;
