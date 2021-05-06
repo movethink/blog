@@ -46,3 +46,11 @@ tags:
 ## 模板编译
 
 ## 生命周期
+
+## 参考资料
+
+[理解 vue 实现原理，实现一个简单的 Vue 框架](https://blog.csdn.net/pur_e/article/details/53066275)
+
+[剖析 Vue 实现原理 - 如何实现双向绑定 mvvm]("https://github.com/DMQ/mvvm")
+
+[Vue.js 源码（1）：Hello World 的背后](https://segmentfault.com/a/1190000006866881)
