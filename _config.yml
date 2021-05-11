@@ -104,6 +104,8 @@ deploy:
   type: git
   repo: https://github.com/movethink/movethink.github.io.git
   branch: master
+  name: Artiste
+  email: 471671758@qq.com
 
 sidebar-avatar: img/avatar.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
