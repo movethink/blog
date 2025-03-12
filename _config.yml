@@ -111,10 +111,9 @@ sidebar-avatar: img/avatar.jpg # use absolute URL, seeing it's used in both `/` 
 
 # Friends
 # 友情链接
-friends:
-  [
+friends: [
     { title: "YWZ", href: "https://yiwenzhe.com/" },
-    { title: "技巅", href: "https://codec.fun/" },
+    # { title: "技巅", href: "https://codec.fun/" },
     { title: "COOLSHELL", href: "https://coolshell.cn/" },
     { title: "WANGYIN", href: "http://www.yinwang.org/" },
   ]
